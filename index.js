@@ -2,6 +2,8 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const genHTML = require("./src/generateHTML.js");
 
+var team = [];
+
 const managerQuestions = [
     {
         type: 'input',
@@ -77,21 +79,47 @@ const internQuestions = [
     }
 ];
 
-function addEngineer(employee) {
+function addEmployee() {
+    inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'addmember',
+                message: 'Which type of team member would you like to add?',
+                choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
+            }
+        ])
+        .then((answers) => {
+            if (answers.addmember === "Engineer") {
+                addEngineer();
+            } else if (answers.addmember === "Intern") {
+                addIntern();
+            } else {
+                return;
+            }
+        })
+        .catch((err) => console.log(err))
+}
+
+function addEngineer() {
     inquirer
         .prompt(engineerQuestions)
         .then((answers) => {
-
+            team.push(answers);
+            addEmployee();
         })
+        .catch((err) => console.log(err))
 
 }
 
-function addIntern(employee) {
+function addIntern() {
     inquirer
         .prompt(internQuestions)
         .then((answers) => {
-
+            team.push(answers);
+            addEmployee();
         })
+        .catch((err) => console.log(err))
 
 }
 
@@ -107,9 +135,10 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer
         .prompt(managerQuestions)
-        .then((data) => {
-            
-            // writeToFile("roster.html", data);
+        .then((answer) => {
+            team.push(data);
+            // console.log(answer)
+            // writeToFile("roster.html", team);
         })
         .catch((err) => console.log(err))
 }
