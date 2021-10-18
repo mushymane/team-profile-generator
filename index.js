@@ -110,7 +110,6 @@ function addEngineer() {
             addEmployee();
         })
         .catch((err) => console.log(err))
-
 }
 
 function addIntern() {
@@ -121,7 +120,6 @@ function addIntern() {
             addEmployee();
         })
         .catch((err) => console.log(err))
-
 }
 
 // Function to write HTML
