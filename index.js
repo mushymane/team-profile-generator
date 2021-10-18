@@ -1,28 +1,34 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const markdown = require("./utils/generateMarkdown.js");
+const genHTML = require("./src/generateHTML.js");
 
 const managerQuestions = [
     {
         type: 'input',
         name: 'managername',
-        message: 'This command line app will generate a roster page for your team. First, enter your name:'
+        message: "This command line app will generate a roster page for your team. First, what is the team manager's name?"
     },
     {
         type: 'input',
         name: 'managerid',
-        message: 'Enter your employee ID:'
+        message: "What is the team manager's employee ID?"
     },
     {
         type: 'input',
         name: 'manageremail',
-        message: 'Enter your email:'
+        message: "What is the team manager's email?"
     },
     {
         type: 'input',
         name: 'manageroffice',
-        message: 'Enter your office number:'
-    }
+        message: "What is the team manager's office number?"
+    },
+    // {
+    //     type: 'list',
+    //     name: 'addmember',
+    //     message: 'Which type of team member would you like to add?',
+    //     choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
+    // }
 ];
 
 // Function to write HTML
@@ -38,7 +44,7 @@ function init() {
     inquirer
         .prompt(managerQuestions)
         .then((data) => {
-            writeToFile("roster.HTML", data);
+            writeToFile("roster.html", data);
         })
         .catch((err) => console.log(err))
 }
