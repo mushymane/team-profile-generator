@@ -2,6 +2,11 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const genHTML = require("./src/generateHTML.js");
 
+// const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
+
 var team = [];
 
 const managerQuestions = [
@@ -111,8 +116,9 @@ function addEmployee() {
 function addEngineer() {
     inquirer
         .prompt(engineerQuestions)
-        .then((answers) => {
-            team.push(answers);
+        .then((answer) => {
+            const engineer = new Engineer(answer.engineername, answer.engineerid, answer.engineeremail, answer.engineergithub)
+            team.push(engineer);
             addEmployee();
         })
         .catch((err) => console.log(err))
@@ -121,8 +127,9 @@ function addEngineer() {
 function addIntern() {
     inquirer
         .prompt(internQuestions)
-        .then((answers) => {
-            team.push(answers);
+        .then((answer) => {
+            const intern = new Intern(answer.internname, answer.internid, answer.internemail, answer.internschool)
+            team.push(intern);
             addEmployee();
         })
         .catch((err) => console.log(err))
@@ -141,7 +148,8 @@ function init() {
     inquirer
         .prompt(managerQuestions)
         .then((answer) => {
-            team.push(answer);
+            const manager = new Manager(answer.managername, answer.managerid, answer.manageremail, answer.manageroffice)
+            team.push(manager);
             addEmployee();
             // writeToFile("roster.html", team);
         })
