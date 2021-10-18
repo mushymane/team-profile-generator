@@ -25,12 +25,6 @@ const managerQuestions = [
         name: 'manageroffice',
         message: "What is the team manager's office number?"
     }
-    // {
-    //     type: 'list',
-    //     name: 'addmember',
-    //     message: 'Which type of team member would you like to add?',
-    //     choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
-    // }
 ];
 
 const engineerQuestions = [
@@ -86,7 +80,7 @@ function addEmployee() {
                 type: 'list',
                 name: 'addmember',
                 message: 'Which type of team member would you like to add?',
-                choices: ['Engineer', 'Intern', "I don't want to add any more team members"]
+                choices: ['Engineer', 'Intern', "I am done adding team members"]
             }
         ])
         .then((answers) => {
