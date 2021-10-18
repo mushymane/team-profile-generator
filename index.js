@@ -107,6 +107,7 @@ function addEmployee() {
                 addIntern();
             } else {
                 console.log(team)
+                // console.log(team[0].getRole())
                 return;
             }
         })
