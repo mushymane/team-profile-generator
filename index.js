@@ -18,7 +18,11 @@ const managerQuestions = [
     {
         type: 'input',
         name: 'manageremail',
-        message: "What is the team manager's email?"
+        message: "What is the team manager's email?",
+        validate: function(manageremail)
+        {
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(manageremail);
+        }
     },
     {
         type: 'input',
@@ -41,7 +45,11 @@ const engineerQuestions = [
     {
         type: 'input',
         name: 'engineeremail',
-        message: "What is the engineer's email?"
+        message: "What is the engineer's email?",
+        validate: function(engineeremail)
+        {
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(engineeremail);
+        }
     },
     {
         type: 'input',
@@ -64,7 +72,11 @@ const internQuestions = [
     {
         type: 'input',
         name: 'internemail',
-        message: "What is the intern's email?"
+        message: "What is the intern's email?",
+        validate: function(internemail)
+        {
+            return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(internemail);
+        }
     },
     {
         type: 'input',
