@@ -72,7 +72,7 @@ describe("Manager", () => {
         });
     });
 
-    describe("getEmail()", () => {
+    describe("getOffice()", () => {
         it("should return 'Z0' after calling getOffice()", () => {
             const manager = new Manager("Elon", "1", "elon@tesla.com", "Z0");
 
