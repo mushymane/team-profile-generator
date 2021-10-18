@@ -22,7 +22,7 @@ const managerQuestions = [
         type: 'input',
         name: 'manageroffice',
         message: "What is the team manager's office number?"
-    },
+    }
     // {
     //     type: 'list',
     //     name: 'addmember',
@@ -31,10 +31,74 @@ const managerQuestions = [
     // }
 ];
 
+const engineerQuestions = [
+    {
+        type: 'input',
+        name: 'engineername',
+        message: "What is the engineer's name?"
+    },
+    {
+        type: 'input',
+        name: 'engineerid',
+        message: "What is the engineer's employee ID?"
+    },
+    {
+        type: 'input',
+        name: 'engineeremail',
+        message: "What is the engineer's email?"
+    },
+    {
+        type: 'input',
+        name: 'engineergithub',
+        message: "What is the engineer's Github?"
+    }
+];
+
+const internQuestions = [
+    {
+        type: 'input',
+        name: 'internname',
+        message: "What is the intern's name?"
+    },
+    {
+        type: 'input',
+        name: 'internid',
+        message: "What is the intern's employee ID?"
+    },
+    {
+        type: 'input',
+        name: 'internemail',
+        message: "What is the intern's email?"
+    },
+    {
+        type: 'input',
+        name: 'internschool',
+        message: "What is the intern's school?"
+    }
+];
+
+function addEngineer(employee) {
+    inquirer
+        .prompt(engineerQuestions)
+        .then((answers) => {
+
+        })
+
+}
+
+function addIntern(employee) {
+    inquirer
+        .prompt(internQuestions)
+        .then((answers) => {
+
+        })
+
+}
+
 // Function to write HTML
 function writeToFile(fileName, data) {
-    let genMarkdown = markdown(data);
-    fs.writeFile(fileName, genMarkdown, (err) => {
+    let teamInfo = genHTML(data);
+    fs.writeFile(fileName, teamInfo, (err) => {
         err ? console.log(err) : console.log("COOKING up your roster HTML");
     })
 }
@@ -44,7 +108,8 @@ function init() {
     inquirer
         .prompt(managerQuestions)
         .then((data) => {
-            writeToFile("roster.html", data);
+            
+            // writeToFile("roster.html", data);
         })
         .catch((err) => console.log(err))
 }
