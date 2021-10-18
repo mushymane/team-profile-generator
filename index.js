@@ -95,6 +95,7 @@ function addEmployee() {
             } else if (answers.addmember === "Intern") {
                 addIntern();
             } else {
+                console.log(team)
                 return;
             }
         })
@@ -136,8 +137,8 @@ function init() {
     inquirer
         .prompt(managerQuestions)
         .then((answer) => {
-            team.push(data);
-            // console.log(answer)
+            team.push(answer);
+            addEmployee();
             // writeToFile("roster.html", team);
         })
         .catch((err) => console.log(err))
