@@ -108,6 +108,7 @@ function addEmployee() {
             } else {
                 console.log(team)
                 // console.log(team[0].getRole())
+                // console.log(team[0] instanceof Manager)
                 return;
             }
         })
