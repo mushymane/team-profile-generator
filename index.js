@@ -9,6 +9,7 @@ const Intern = require('./lib/intern')
 
 var team = [];
 
+// Questions for the manager (assuming they are the one using the app)
 const managerQuestions = [
     {
         type: 'input',
@@ -36,6 +37,7 @@ const managerQuestions = [
     }
 ];
 
+// Questions to get Engineer info
 const engineerQuestions = [
     {
         type: 'input',
@@ -63,6 +65,7 @@ const engineerQuestions = [
     }
 ];
 
+// Questions to get Intern info
 const internQuestions = [
     {
         type: 'input',
@@ -90,6 +93,8 @@ const internQuestions = [
     }
 ];
 
+// The manager will be prompted these questions if they would like to add Employees
+// If they are done, generate the HTML file
 function addEmployee() {
     inquirer
         .prompt([
@@ -116,6 +121,7 @@ function addEmployee() {
         .catch((err) => console.log(err))
 }
 
+// Adds an instance of Engineer to the team array
 function addEngineer() {
     inquirer
         .prompt(engineerQuestions)
@@ -127,6 +133,7 @@ function addEngineer() {
         .catch((err) => console.log(err))
 }
 
+// Adds an instance of Intern to the team array
 function addIntern() {
     inquirer
         .prompt(internQuestions)

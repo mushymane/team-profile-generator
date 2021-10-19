@@ -1,8 +1,10 @@
+// Import classes
 const Employee = require('../lib/employee');
 const Manager = require('../lib/manager');
 const Engineer = require('../lib/engineer');
 const Intern = require('../lib/intern');
 
+// Generates template literal for manager card
 var generateManager = (memberInfo) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
@@ -21,6 +23,7 @@ var generateManager = (memberInfo) => {
   `
 }
 
+// Generates template literal for engineer cards
 var generateEngineer = (memberInfo) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
@@ -39,6 +42,7 @@ var generateEngineer = (memberInfo) => {
   `
 }
 
+// Generates template literal for intern cards
 var generateIntern = (memberInfo) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
@@ -57,8 +61,10 @@ var generateIntern = (memberInfo) => {
   `
 }
 
+// Generates a template literal representing an HTML file that displays cards for each team member
 function generateHTML(data) {
 
+    // This string will be appended to with more HTML and some closing tags
     var fileString = `<!DOCTYPE html>
     <html lang="en">
     
@@ -82,6 +88,8 @@ function generateHTML(data) {
     
           `;
 
+    // Takes each object in the input and generates a specific card based on the class
+    // Then it appends to fileString
     data.forEach(member => {
         if (member instanceof Manager) {
             var manager = generateManager(member);
@@ -95,12 +103,14 @@ function generateHTML(data) {
         }
     });
 
+    // Append the final closing tags
     fileString += `</div>
     </div>
   </body>
   
   </html>`;
 
+    // Return the HTML
     return fileString;
 }
 
