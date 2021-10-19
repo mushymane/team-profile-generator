@@ -27,6 +27,15 @@ describe("Intern", () => {
             // Assert
             expect(cb).toThrowError(err);
         });
+
+        it("should throw an error if 'school' is empty", () => {
+            // Act
+            const cb = () => new Intern("Charles Hoskinson", "4", "charles@cardano.com", "");
+            const err = new Error("Expected parameter 'school' to be a non-empty string");
+      
+            // Assert
+            expect(cb).toThrowError(err);
+        });
     });
 
     describe("getRole()", () => {

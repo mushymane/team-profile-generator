@@ -27,6 +27,15 @@ describe("Engineer", () => {
             // Assert
             expect(cb).toThrowError(err);
         });
+
+        it("should throw an error if 'github' is empty", () => {
+            // Act
+            const cb = () => new Engineer("Cathie", "3", "cathie@ark.com", "");
+            const err = new Error("Expected parameter 'github' to be a non-empty string");
+      
+            // Assert
+            expect(cb).toThrowError(err);
+        });
     });
 
     describe("getRole()", () => {

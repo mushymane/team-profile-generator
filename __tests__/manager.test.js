@@ -27,6 +27,15 @@ describe("Manager", () => {
             // Assert
             expect(cb).toThrowError(err);
         });
+
+        it("should throw an error if 'office' is empty", () => {
+            // Act
+            const cb = () => new Manager("Jack", "2", "jack@twitter.com", "");
+            const err = new Error("Expected parameter 'office' to be a non-empty string");
+      
+            // Assert
+            expect(cb).toThrowError(err);
+        });
     });
 
     describe("getRole()", () => {
