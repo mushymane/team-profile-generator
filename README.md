@@ -49,7 +49,7 @@ Here is a video tutorial: [Tutorial](https://watch.screencastify.com/v/o5QVlEuvb
 ## Usage
 
 Answer each prompt. Press enter to submit your input. Select 'I am done building my team' to exit the application and 
-generate your page.
+generate your page. The email prompt cannot be in non-email format else the input will not register
 
 ## Code Snippet
 

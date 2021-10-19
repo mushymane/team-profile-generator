@@ -34,7 +34,7 @@ var generateEngineer = (memberInfo) => {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${memberInfo.id}</li>
         <li class="list-group-item">Email: <a href="mailto:${memberInfo.email}" target="_blank" class="card-link">${memberInfo.email}</a></li>
-        <li class="list-group-item">Github: <a href="https://github.com/${memberInfo.github}" class="card-link">${memberInfo.github}</a></li>
+        <li class="list-group-item">Github: <a href="https://github.com/${memberInfo.github}" target="_blank" class="card-link">${memberInfo.github}</a></li>
       </ul>
     </div>
   </div>
