@@ -107,6 +107,7 @@ function addEmployee() {
                 addIntern();
             } else {
                 console.log(team)
+                writeToFile("./dist/roster.html", team)
                 // console.log(team[0].getRole())
                 // console.log(team[0] instanceof Manager)
                 return;
@@ -141,7 +142,7 @@ function addIntern() {
 function writeToFile(fileName, data) {
     let teamInfo = genHTML(data);
     fs.writeFile(fileName, teamInfo, (err) => {
-        err ? console.log(err) : console.log("COOKING up your roster HTML");
+        err ? console.log(err) : console.log("COOK IT UP COOK IT UP");
     })
 }
 
@@ -153,7 +154,6 @@ function init() {
             const manager = new Manager(answer.managername, answer.managerid, answer.manageremail, answer.manageroffice)
             team.push(manager);
             addEmployee();
-            // writeToFile("roster.html", team);
         })
         .catch((err) => console.log(err))
 }

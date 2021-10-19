@@ -6,7 +6,7 @@ const Intern = require('../lib/intern');
 var generateManager = (memberInfo) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body manager">
         <h5 class="card-title">${memberInfo.name}</h5>
         <p class="card-text">Manager</p>
       </div>
@@ -16,29 +16,33 @@ var generateManager = (memberInfo) => {
         <li class="list-group-item">Office: ${memberInfo.office}</li>
       </ul>
     </div>
-  </div>`
+  </div>
+  
+  `
 }
 
 var generateEngineer = (memberInfo) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body engineer">
         <h5 class="card-title">${memberInfo.name}</h5>
         <p class="card-text">Engineer</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${memberInfo.id}</li>
         <li class="list-group-item">Email: <a href="mailto:${memberInfo.email}" target="_blank" class="card-link">${memberInfo.email}</a></li>
-        <li class="list-group-item">Github: <a href="https://github.com/${memberInfo.github}" class="card-link">${memberInfo.email}</a></li>
+        <li class="list-group-item">Github: <a href="https://github.com/${memberInfo.github}" class="card-link">${memberInfo.github}</a></li>
       </ul>
     </div>
-  </div>`
+  </div>
+  
+  `
 }
 
 var generateIntern = (memberInfo) => {
     return `<div class="col-lg-4 col-md-6 col-12 pb-5">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body intern">
         <h5 class="card-title">${memberInfo.name}</h5>
         <p class="card-text">Intern</p>
       </div>
@@ -48,20 +52,56 @@ var generateIntern = (memberInfo) => {
         <li class="list-group-item">School: ${memberInfo.school}</li>
       </ul>
     </div>
-  </div>`
+  </div>
+  
+  `
 }
 
 function generateHTML(data) {
+
+    var fileString = `<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link rel="stylesheet" href="./style.css">
+      <title>Team Roster</title>
+    </head>
+    
+    <body>
+      <header class="d-flex justify-content-center py-3">
+        <h1>The Dream Team</h1>
+      </header>
+    
+      <div class="container mt-3">
+        <div class="row align-items-center" id="members">
+    
+          `;
+
     data.forEach(member => {
         if (member instanceof Manager) {
-            generateManager(member);
+            var manager = generateManager(member);
+            fileString += manager;
         } else if (member instanceof Engineer) {
-            generateEngineer(member);
+            var engineer = generateEngineer(member);
+            fileString += engineer;
         } else {
-            generateIntern(member);
+            var intern = generateIntern(member);
+            fileString += intern;
         }
     });
-    return ``;
+
+    fileString += `</div>
+    </div>
+  </body>
+  
+  </html>`;
+
+    return fileString;
 }
 
 module.exports = generateHTML;

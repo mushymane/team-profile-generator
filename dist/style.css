@@ -1,0 +1,16 @@
+header {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.manager{
+    background-color: rgba(91, 158, 158, 0.5);
+}
+
+.engineer{
+    background-color: rgba(78, 47, 79, 0.5);
+}
+
+.intern{
+    background-color: rgba(47, 79, 57, 0.5);;
+}
